@@ -1,5 +1,5 @@
 const {app, BrowserWindow, Menu, MenuItem, Tray} = require('electron')
-const { autoUpdater } = require('electron-updater')
+const {autoUpdater} = require('electron-updater')
 
 if (!app.requestSingleInstanceLock()) {
     console.log('Failed to require single instance lock. Currently running instance has been notified of this.')
@@ -12,6 +12,8 @@ let tray;
 let isQuiting;
 
 function startup() {
+    autoUpdater.checkForUpdatesAndNotify();
+
     win = new BrowserWindow({
         width: 800,
         height: 450,
@@ -70,7 +72,7 @@ function startup() {
     win.setMenuBarVisibility(false)
     win.setResizable(false)
 
-    win.loadFile('index.html').then(
+    win.loadFile('index.html').then(() =>
         win.webContents.executeJavaScript(`document.getElementById('version').innerText = '${app.getVersion()}'`)
     )
 
