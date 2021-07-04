@@ -1,0 +1,44 @@
+{
+  "name": "test-auto-updater",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "publish": "electron-builder --publish"
+  },
+  "keywords": [
+    "amq",
+    "anime",
+    "music",
+    "quiz",
+    "discord",
+    "rich",
+    "presence",
+    "rpc"
+  ],
+  "author": "LittleEndu",
+  "license": "CC0",
+  "devDependencies": {
+    "electron": "^13.1.4",
+    "electron-builder": "^22.11.7"
+  },
+  "dependencies": {
+    "electron-window-state": "^5.0.3",
+    "electron-updater": "^4.3.9"
+  },
+  "build": {
+    "appId": "com.example",
+    "productName": "test auto update",
+    "copyright": "Copyright © 2021 LittleEndu",
+    "publish": [{
+      "provider": "github",
+      "owner": "LittleEndu"
+    }],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "favicon.ico"
+    }
+  }
+}
