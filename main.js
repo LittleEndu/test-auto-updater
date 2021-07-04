@@ -49,16 +49,16 @@ function startup() {
         visible: false
     }))
 
-    tray = new Tray('784761219299016744.png')
+    tray = new Tray(__dirname + '/784761219299016744.png')
     tray.setToolTip('Test')
     tray.setContextMenu(Menu.buildFromTemplate([
         {
-            label: 'Show App', click: function () {
+            label: 'Show App', click: () => {
                 win.show();
             }
         },
         {
-            label: 'Quit', click: function () {
+            label: 'Quit', click: () => {
                 isQuiting = true;
                 app.quit();
             }
@@ -72,7 +72,7 @@ function startup() {
     win.setMenuBarVisibility(false)
     win.setResizable(false)
 
-    win.loadFile('index.html').then(() =>
+    win.loadFile(__dirname + '/index.html').then(() =>
         win.webContents.executeJavaScript(`document.getElementById('version').innerText = '${app.getVersion()}'`)
     )
 
