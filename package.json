@@ -1,10 +1,10 @@
 {
   "name": "test-auto-updater",
-  "version": "1.0.0",
+  "version": "1.6.9",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "publish": "electron-builder --publish"
+    "publish": "electron-builder --publish onTagOrDraft"
   },
   "keywords": [
     "amq",
@@ -37,8 +37,7 @@
     "win": {
       "target": [
         "nsis"
-      ],
-      "icon": "favicon.ico"
+      ]
     }
   }
 }
